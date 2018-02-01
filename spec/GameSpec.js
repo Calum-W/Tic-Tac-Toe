@@ -20,5 +20,10 @@ describe("Game", function() {
      game.select_square("A1");
      expect(function() { game.select_square("A1") }).toThrow(new Error("Already selected"));
    })
+
+   it("sets the first player to X, and adds the square to their selected_squares array", function() {
+     game.select_square("A1")
+     expect(game.x.selected_squares).toContain("A1");
+   })
  })
 })
