@@ -10,6 +10,12 @@ describe("Game", function() {
      expect(game.used_squares).toContain("A1");
    })
 
+   it("adds a second chosen square to the used_squares array", function() {
+     game.select_square("A1");
+     game.select_square("A2");
+     expect(game.used_squares).toEqual(["A1", "A2"]);
+   })
+
    it("doesn't allow you to choose a square already selected", function() {
      game.select_square("A1");
      expect(function() { game.select_square("A1") }).toThrow(new Error("Already selected"));
