@@ -12,7 +12,6 @@ var Game = function() {
     this._recordChoice(square)
     this._checkEnd()
     if (!this.gameOver) {
-      console.log("switch turns")
       this._switchTurns()
     }
   };

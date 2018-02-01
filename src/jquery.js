@@ -16,4 +16,8 @@ $(document).ready(function(){
     }
   }
 
+  $("#new-game").click(function() {
+    $("#board tr td").empty()
+    game = new Game
+  });
 });
