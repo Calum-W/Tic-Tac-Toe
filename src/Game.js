@@ -42,16 +42,19 @@ var Game = function() {
 
   this._checkWin = function() {
     var a = this.currentPlayer.selectedSquares
-    console.log(a)
     for (var i = 0; i < winningCombos.length; i ++) {
       if (a.includes(winningCombos[i][0]) && a.includes(winningCombos[i][1]) && a.includes(winningCombos[i][2])) {
         this.over = true
+        console.log(this.currentPlayer.type + " wins!")
       }
     }
   }
 
   this._checkDraw = function() {
-    if (this.usedSquares.length == 9) this.over = true;
+    if (this.usedSquares.length == 9) {
+      this.over = true;
+      console.log("Draw! You both kind of lose")
+    }
   }
 };
 
