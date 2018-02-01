@@ -12,6 +12,7 @@ var Game = function() {
     this._recordChoice(square)
     this._checkEnd()
     if (!this.gameOver) {
+      console.log("switch turns")
       this._switchTurns()
     }
   };
@@ -45,7 +46,7 @@ var Game = function() {
     for (var i = 0; i < winningCombos.length; i ++) {
       if (a.includes(winningCombos[i][0]) && a.includes(winningCombos[i][1]) && a.includes(winningCombos[i][2])) {
         this.over = true
-        console.log(this.currentPlayer.type + " wins!")
+        this.winningMessage = this.currentPlayer.type + " wins!"
       }
     }
   }
@@ -53,7 +54,7 @@ var Game = function() {
   this._checkDraw = function() {
     if (this.usedSquares.length == 9) {
       this.over = true;
-      console.log("Draw! You both kind of lose")
+      this.winningMessage = "Draw! You both kind of lose"
     }
   }
 };
