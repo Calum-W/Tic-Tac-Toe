@@ -22,13 +22,19 @@ describe("Game", function() {
    })
 
    it("sets the first player to X, and adds the square to their selected_squares array", function() {
-     game.select_square("A1")
+     game.select_square("A1");
      expect(game.x.selected_squares).toContain("A1");
    })
 
    it("switches current player after each turn", function() {
-     game.select_square("A1")
+     game.select_square("A1");
      expect(game.current_player.type).toEqual("O")
+   })
+
+   it("adds the second chosen square to player O's array", function() {
+     game.select_square("A1");
+     game.select_square("A2");
+     expect(game.o.selected_squares).toContain("A2");
    })
  })
 })
