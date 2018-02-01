@@ -16,7 +16,7 @@ describe("Game", function() {
      expect(game.used_squares).toEqual(["A1", "A2"]);
    })
 
-   it("doesn't allow you to choose a square already selected", function() {
+   it("throws an error if players choose a square already selected", function() {
      game.select_square("A1");
      expect(function() { game.select_square("A1") }).toThrow(new Error("Already selected"));
    })
@@ -25,6 +25,11 @@ describe("Game", function() {
      game.select_square("A1");
      expect(game.x.selected_squares).toContain("A1");
    })
+
+    it("doesn't add the first chosen square to Player O's array", function() {
+      game.select_square("A1");
+      expect(game.o.selected_squares).not.toContain("A1");
+    })
 
    it("switches current player after each turn", function() {
      game.select_square("A1");
