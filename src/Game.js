@@ -7,9 +7,10 @@ var Game = function() {
   this.over = false
 
   this.selectSquare = function(square) {
+    if (this.over) throw new Error("Game has ended")
     this._checkEmpty(square)
     this._recordChoice(square)
-    this._checkWin()
+    this._checkEnd()
     if (!this.gameOver) {
       this._switchTurns()
     }
@@ -34,6 +35,11 @@ var Game = function() {
     }
   }
 
+  this._checkEnd = function() {
+    this._checkWin()
+    this._checkDraw()
+  }
+
   this._checkWin = function() {
     var a = this.currentPlayer.selectedSquares
     console.log(a)
@@ -43,8 +49,11 @@ var Game = function() {
       }
     }
   }
-};
 
+  this._checkDraw = function() {
+    if (this.usedSquares.length == 9) this.over = true;
+  }
+};
 
 var winningCombos = [["A1", "A2", "A3"],
                      ["B1", "B2", "B3"],
