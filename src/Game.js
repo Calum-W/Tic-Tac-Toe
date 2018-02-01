@@ -1,32 +1,57 @@
 var Game = function() {
 
-  this.used_squares = [];
+  this.usedSquares = [];
   this.x = new Player("X")
   this.o = new Player("O")
-  this.current_player = this.x
+  this.currentPlayer = this.x
+  this.over = false
 
-  this.select_square = function(square) {
-    this._check_empty(square)
-    this._record_choice(square)
-    this._switch_turns()
+  this.selectSquare = function(square) {
+    this._checkEmpty(square)
+    this._recordChoice(square)
+    this._checkWin()
+    if (!this.gameOver) {
+      this._switchTurns()
+    }
   };
 
-  this._check_empty = function(square) {
-    if (this.used_squares.includes(square)) {
+  this._checkEmpty = function(square) {
+    if (this.usedSquares.includes(square)) {
       throw new Error("Already selected");
     }
   }
 
-  this._record_choice = function(square) {
-    this.used_squares.push(square);
-    this.current_player.record_choice(square);
+  this._recordChoice = function(square) {
+    this.usedSquares.push(square);
+    this.currentPlayer.recordChoice(square);
   }
 
-  this._switch_turns = function() {
-    if (this.current_player == this.x) {
-      this.current_player = this.o
+  this._switchTurns = function() {
+    if (this.currentPlayer == this.x) {
+      this.currentPlayer = this.o
     } else {
-      this.current_player = this.x
+      this.currentPlayer = this.x
+    }
+  }
+
+  this._checkWin = function() {
+    var a = this.currentPlayer.selectedSquares
+    console.log(a)
+    for (var i = 0; i < winningCombos.length; i ++) {
+      if (a.includes(winningCombos[i][0]) && a.includes(winningCombos[i][1]) && a.includes(winningCombos[i][2])) {
+        this.over = true
+      }
     }
   }
 };
+
+
+var winningCombos = [["A1", "A2", "A3"],
+                     ["B1", "B2", "B3"],
+                     ["C1", "C2", "C3"],
+                     ["A1", "B2", "B3"],
+                     ["A3", "B2", "C1"],
+                     ["A1", "B1", "C1"],
+                     ["A2", "B2", "C2"],
+                     ["A3", "B3", "C3"]
+                    ]
