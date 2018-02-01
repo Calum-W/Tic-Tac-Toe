@@ -25,5 +25,10 @@ describe("Game", function() {
      game.select_square("A1")
      expect(game.x.selected_squares).toContain("A1");
    })
+
+   it("switches current player after each turn", function() {
+     game.select_square("A1")
+     expect(game.current_player.type).toEqual("O")
+   })
  })
 })

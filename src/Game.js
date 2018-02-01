@@ -11,6 +11,11 @@ var Game = function() {
     } else {
       this.used_squares.push(square);
       this.current_player.selected_squares.push(square);
+      if (this.current_player == this.x) {
+        this.current_player = this.o
+      } else {
+        this.current_player = this.x
+      }
     };
   };
 };
