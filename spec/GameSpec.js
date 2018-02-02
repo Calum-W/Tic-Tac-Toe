@@ -72,4 +72,16 @@ describe("Game", function() {
      expect(spyPlayer.recordChoice).toHaveBeenCalled();
    })
   })
+
+  describe("switch turns", function() {
+    it("switches the current player from O to X", function() {
+      game._switchTurns(game.x)
+      expect(game.currentPlayer).toEqual(game.o)
+    })
+
+    it("switches the current player from O to X", function() {
+      game._switchTurns(game.o)
+      expect(game.currentPlayer).toEqual(game.x)
+    })
+  })
 })

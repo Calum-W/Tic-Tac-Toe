@@ -19,8 +19,8 @@ var Game = function() {
     player.recordChoice(square);
   }
 
-  this._switchTurns = function() {
-    if (this.currentPlayer == this.x) {
+  this._switchTurns = function(player = this.currentPlayer) {
+    if (player == this.x) {
       this.currentPlayer = this.o
     } else {
       this.currentPlayer = this.x
