@@ -37,7 +37,7 @@ var Game = function() {
       if (squares.includes(winningCombos[i][0]) && squares.includes(winningCombos[i][1])
       && squares.includes(winningCombos[i][2])) {
         this.over = true
-        this.winningMessage = this.currentPlayer.type + " wins!"
+        this.endMessage = this.currentPlayer.type + " wins!"
       }
     }
   }
@@ -45,7 +45,7 @@ var Game = function() {
   this._checkDraw = function() {
     if (this.usedSquares.length == 9) {
       this.over = true;
-      this.winningMessage = "Draw! You both kind of lose"
+      this.endMessage = "Draw! You both kind of lose"
     }
   }
 };

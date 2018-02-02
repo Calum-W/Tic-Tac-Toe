@@ -88,12 +88,26 @@ describe("Game", function() {
   describe("check win", function() {
     it("should call a win if a winning combination has been selected by X", function() {
       game._checkWin(["A1","A2","A3"]);
-      expect(game.winningMessage).toEqual("X wins!")
+      expect(game.endMessage).toEqual("X wins!")
     })
 
     it("should call a win if a winning combination is among the squares chosen by X", function() {
       game._checkWin(["B3", "B1","A2", "B2", "A3"]);
-      expect(game.winningMessage).toEqual("X wins!")
+      expect(game.endMessage).toEqual("X wins!")
+    })
+  })
+
+  describe("check draw", function() {
+    it("should end the game when all squares have been selected", function() {
+      game.usedSquares = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
+      game._checkDraw();
+      expect(game.over).toEqual(true);
+    })
+
+    it("should set a message when all squares have been selected", function() {
+      game.usedSquares = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
+      game._checkDraw();
+      expect(game.endMessage).toEqual("Draw! You both kind of lose");
     })
   })
 })
