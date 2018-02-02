@@ -95,6 +95,11 @@ describe("Game", function() {
       game._checkWin(["B3", "B1","A2", "B2", "A3"]);
       expect(game.endMessage).toEqual("X wins!")
     })
+
+    it("should end the game when a wining combination has been selected", function() {
+      game._checkWin(["C3", "B1", "A2", "B2", "A1"]);
+      expect(game.over).toEqual(true);
+    })
   })
 
   describe("check draw", function() {
