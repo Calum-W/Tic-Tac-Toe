@@ -20,7 +20,7 @@ $(document).ready(function(){
   function showTurn() {
     if (!game.over) {
       $('#player_icon tr td').css('background-color', 'white');
-      $("#" + game.currentPlayer.type).css('background-color', 'green');
+      $("#" + game.currentPlayer.type).css('background-color', '#66ff33');
     }
   }
 

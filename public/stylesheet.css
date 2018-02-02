@@ -1,3 +1,7 @@
+body {
+  background-color: #DEFBFB
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -44,7 +48,7 @@ table {
 }
 
 #X {
-  background-color: green;
+  background-color: #66ff33;
 }
 
 #new_game {
