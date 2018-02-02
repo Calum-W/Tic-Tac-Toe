@@ -6,6 +6,7 @@ $(document).ready(function(){
     if ($(this).text()=="" && !game.over) {
       $(this).text(game.currentPlayer.type)
       game.selectSquare(this.id)
+      showTurn()
       announceWinner()
     }
   });
@@ -13,6 +14,13 @@ $(document).ready(function(){
   function announceWinner() {
     if (game.over) {
       alert(game.winningMessage)
+    }
+  }
+
+  function showTurn() {
+    if (!game.over) {
+      $('#player_icon tr td').css('background-color', 'white');
+      $("#" + game.currentPlayer.type).css('background-color', 'green');
     }
   }
 

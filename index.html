@@ -11,19 +11,27 @@
 
   <body>
 
-    <table id='board'>
+    <div>
+      <table id='board'>
+        <tr>
+          <td id="A1"></td><td id="A2"></td><td id="A3"></td>
+        </tr>
+        <tr>
+          <td id="B1"></td><td id="B2"></td><td id="B3"></td>
+        </tr>
+        <tr>
+          <td id="C1"></td><td id="C2"></td><td id="C3"></td>
+        </tr>
+      </table>
+    </div>
+
+    <button type="button" id="new_game">NEW GAME</button>
+
+    <table id="player_icon">
       <tr>
-        <td id="A1"></td><td id="A2"></td><td id="A3"></td>
-      </tr>
-      <tr>
-        <td id="B1"></td><td id="B2"></td><td id="B3"></td>
-      </tr>
-      <tr>
-        <td id="C1"></td><td id="C2"></td><td id="C3"></td>
+        <td id="X">X</td><td id="O">O</td>
       </tr>
     </table>
-
-    <button type="button" id="new-game">NEW GAME</button>
 
     <script type="text/javascript" src="src/jquery.js"></script>
     <script type="text/javascript" src="src/Game.js"></script>
