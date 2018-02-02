@@ -14,9 +14,9 @@ var Game = function() {
     }
   };
 
-  this._recordChoice = function(square) {
+  this._recordChoice = function(square, player = this.currentPlayer) {
     this.usedSquares.push(square);
-    this.currentPlayer.recordChoice(square);
+    player.recordChoice(square);
   }
 
   this._switchTurns = function() {

@@ -2,6 +2,7 @@ describe("Game", function() {
 
   beforeEach(function() {
     game = new Game();
+    spyPlayer = jasmine.createSpyObj('spyPlayer', ['recordChoice']);
   })
 
  describe("selectSquare", function() {
@@ -14,11 +15,6 @@ describe("Game", function() {
      game.selectSquare("A1");
      game.selectSquare("A2");
      expect(game.usedSquares).toEqual(["A1", "A2"]);
-   })
-
-   it("throws an error if players choose a square already selected", function() {
-     game.selectSquare("A1");
-     expect(function() { game.selectSquare("A1") }).toThrow(new Error("Already selected"));
    })
 
    it("sets the first player to X, and adds the square to their selected_squares array", function() {
@@ -63,10 +59,17 @@ describe("Game", function() {
      game.selectSquare("C3");
      expect(game.over).toEqual(true)
    })
-
-   it("doesn't allow a square to be selected if the game is over", function() {
-     game.over = true
-     expect(function() { game.selectSquare("A1") }).toThrow(new Error("Game has ended"));
-   })
  })
+
+ describe("record choice", function() {
+   it("pushes the input into the used squares array", function() {
+     game._recordChoice("A2");
+     expect(game.usedSquares).toContain("A2")
+   })
+
+   it("calls recordChoice on the current player", function() {
+     game._recordChoice("A2", spyPlayer);
+     expect(spyPlayer.recordChoice).toHaveBeenCalled();
+   })
+  })
 })
