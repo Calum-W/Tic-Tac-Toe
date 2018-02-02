@@ -32,10 +32,10 @@ var Game = function() {
     this._checkDraw()
   }
 
-  this._checkWin = function() {
-    var a = this.currentPlayer.selectedSquares
+  this._checkWin = function(squares = this.currentPlayer.selectedSquares) {
     for (var i = 0; i < winningCombos.length; i ++) {
-      if (a.includes(winningCombos[i][0]) && a.includes(winningCombos[i][1]) && a.includes(winningCombos[i][2])) {
+      if (squares.includes(winningCombos[i][0]) && squares.includes(winningCombos[i][1])
+      && squares.includes(winningCombos[i][2])) {
         this.over = true
         this.winningMessage = this.currentPlayer.type + " wins!"
       }

@@ -84,4 +84,16 @@ describe("Game", function() {
       expect(game.currentPlayer).toEqual(game.x)
     })
   })
+
+  describe("check win", function() {
+    it("should call a win if a winning combination has been selected by X", function() {
+      game._checkWin(["A1","A2","A3"]);
+      expect(game.winningMessage).toEqual("X wins!")
+    })
+
+    it("should call a win if a winning combination is among the squares chosen by X", function() {
+      game._checkWin(["B3", "B1","A2", "B2", "A3"]);
+      expect(game.winningMessage).toEqual("X wins!")
+    })
+  })
 })
