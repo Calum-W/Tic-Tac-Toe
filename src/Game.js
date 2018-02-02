@@ -7,20 +7,12 @@ var Game = function() {
   this.over = false
 
   this.selectSquare = function(square) {
-    if (this.over) throw new Error("Game has ended")
-    this._checkEmpty(square)
     this._recordChoice(square)
     this._checkEnd()
     if (!this.gameOver) {
       this._switchTurns()
     }
   };
-
-  this._checkEmpty = function(square) {
-    if (this.usedSquares.includes(square)) {
-      throw new Error("Already selected");
-    }
-  }
 
   this._recordChoice = function(square) {
     this.usedSquares.push(square);
