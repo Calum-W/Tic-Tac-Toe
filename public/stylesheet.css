@@ -51,6 +51,20 @@ table {
   background-color: #66ff33;
 }
 
+button {
+  height:50px;
+  width:200px;
+  font: Georgia;
+  font-size: 20px;
+  color: white;
+  background-color: #235252;
+}
+
+button:hover {
+  background: #A6BEAB;
+  cursor: pointer;
+}
+
 #new_game {
   text-align: center;
 }
