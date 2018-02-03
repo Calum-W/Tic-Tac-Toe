@@ -24,8 +24,10 @@ $(document).ready(function(){
     }
   }
 
-  $("#new-game").click(function() {
+  $("#new_game").click(function() {
     $("#board tr td").empty()
+    $('#X').css('background-color', '#66ff33');
+    $('#O').css('background-color', 'white');
     game = new Game
   });
 });
