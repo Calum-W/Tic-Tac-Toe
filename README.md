@@ -15,7 +15,7 @@ A game is over when all fields are taken
 Build the business logic for a game of tic tac toe. It should be easy to implement a working game of tic tac toe by combining your code with any user interface, whether web or command line.
 
 ## Solution
-![screenshot of the game](/Users/calumwiddall/documents/programming/tech-tests/Tic-Tac-Toe/public/Tic-Tac-Toe screenshot.45.13.png)
+[screenshot of the game](/public/Tic-Tac-Toe screenshot.45.13.png)
 
 #### Logic:
 My approach to the logic was to build Game and Player. Game would instantiate with two instances of Player, X and O. Each time a player selected a square, it would be added to the game's used squares array and the player's selected squares array. To check whether a player had won, I decided to loop through an array of the eight winning combinations of squares and see if the player's selected squares array contained all three squares of any combination.
